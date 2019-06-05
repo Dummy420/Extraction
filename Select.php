@@ -8,8 +8,7 @@ foreach ($ips as $ip) {
     echo '<br>';
     $i ++;
 }
-
- ?>
+?>
  <head>
    <title>Selection particulière</title>
  </head>

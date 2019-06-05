@@ -76,7 +76,7 @@ for ($i = 0; $i < sizeof($result); $i++) {
 
     if (!in_array($result[$i][2], $punis)) {
         try {
-            exec("ping -n 1 $ip", $output, $status);
+            exec("ping -n 1 -w 500  $ip", $output, $status);
         } catch (Exeption $e) {
             $status = "Erreur";
         }

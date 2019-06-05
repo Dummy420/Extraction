@@ -41,6 +41,7 @@ $result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adre
   <h1>Surveillance des Équipements</h1>
   <ul>
     <li><a href="bannis.php">Gestion des Ip a Pinger</a><li>
+    <li><a href="Select.php">Selection particulière</a></li>
   </ul>
 </nav>
   <hr>

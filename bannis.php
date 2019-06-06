@@ -15,10 +15,10 @@ $ips = Read2("pping.txt");
       <li><a href="index.php">Retour a la page d'acceuil</a></li>
     </ul>
   </nav>
-  <table style="width: 60%;">
+  <hr>
+  <table class="center">
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <?php
-    var_dump($ips);
     foreach ($ips as $ip) {
         echo('<tr><td style="padding: 0px;"><input style="width: 100%; height: 100%;" type="submit" value="'. $ip .'" name="test"></input></td>');
         echo '</tr>';

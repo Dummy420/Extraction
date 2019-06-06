@@ -25,6 +25,9 @@ if it's not present, don't show loader */
 h1 {
   text-align: center;
   font-family: Arial;
+  font-size: 5vw;
+  padding-top: 15px;
+  color: #fff;
 }
 
 hr {
@@ -39,6 +42,10 @@ th {
 
 td {
   text-align: center;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff;
 }
 
 tr:nth-child(even) {
@@ -61,7 +68,7 @@ caption {
 
 table {
   border-collapse: collapse;
-  border: 2px solid rgb(200, 200, 200);
+  border: 2px solid #c8c8c8;
   letter-spacing: 1px;
   font-family: Arial;
   font-size: .8rem;
@@ -70,12 +77,15 @@ table {
 
 body {
   background-color: #e2e2e2;
+  background-image: url(saturne.jpg);
+  background-attachment: fixed;
 }
 
 nav {
   width: 100%;
-  background-color: pink;
-  height: 10%;
+  background-color: #4b4b4b;
+  min-height: 10%;
+  border-radius: 15px;
 }
 
 ul {
@@ -84,6 +94,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #fff;
+  border-radius: 16px;
 }
 
 li {
@@ -112,4 +123,10 @@ li a:hover {
   color: white;
   padding: 15px;
   align-items: center;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
 }

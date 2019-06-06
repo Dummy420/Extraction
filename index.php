@@ -108,8 +108,11 @@ for ($i = 0; $i < sizeof($result); $i++) {
     echo('<td bgcolor="'. $bgcolor .'">'.$status.'</td>');
     echo '</tr>';
 }
+if (isset($_POST['delB'])) {
+    $handle = fopen('pping.txt', "w");
+    fwrite($handle, '');
+    header("Refresh: 0");
+}
 fclose($fp);?>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-  <input type="submit" id="BigB">
-</form>
+
 </body>

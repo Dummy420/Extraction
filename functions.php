@@ -43,8 +43,8 @@ function Read2($file)
 
 function ip_range($start, $end)
 {
-  $start = ip2long($start);
-  $end = ip2long($end);
-  return array_map('long2ip', range($start, $end) );
+    $start = ip2long($start);
+    $end = ip2long($end);
+    return array_map('long2ip', range($start, $end));
 }
 ?>

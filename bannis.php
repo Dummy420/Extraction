@@ -40,7 +40,11 @@ $ips = Read2("pping.txt");
     ?>
   </table>
 </form>
-<form method="post" action="index.php">
-    <input type="submit" name="delB" value="Supprimer toutes les Ips"></input>
-  </form>
+<?php
+if (sizeof($ips) > 0){
+  echo '<form method="post" action="index.php">
+      <input type="submit" name="delB" value="Supprimer toutes les Ips"></input>
+    </form>';
+}
+?>
 </body>

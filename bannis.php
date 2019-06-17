@@ -16,11 +16,12 @@ $ips = Read2("pping.txt");
     </ul>
   </nav>
   <hr>
-  <table class="center">
+  <div style="align: center;">
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <?php
     foreach ($ips as $ip) {
-        echo('<tr><td style="padding: 0px;"><input style="width: 100%; height: 100%;" type="submit" value="'. $ip .'" name="test"></input></td>');
+        //echo('<tr><td style="padding: 0px;"><input class="button" style="width: 100%; height: 100%;" type="submit" value="'. $ip .'" name="test"></input></td>');
+        echo '<input class="button" type="submit" value="'. $ip .'" name="test">';
         echo '</tr>';
     }
         $key;
@@ -38,12 +39,12 @@ $ips = Read2("pping.txt");
             header("Refresh: 0");
         }
     ?>
-  </table>
+  </div>
 </form>
 <?php
 if (sizeof($ips) > 0){
   echo '<form method="post" action="index.php">
-      <input type="submit" name="delB" value="Supprimer toutes les Ips"></input>
+      <input class="button" style="width: 100%;" type="submit" name="delB" value="Supprimer toutes les Ips"></input>
     </form>';
 }
 ?>

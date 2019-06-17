@@ -18,7 +18,8 @@ $link = Link::getInstance(); //recupération de la connection a la base SQL
 $co = $link->getlink();
 
 //on effectue la requête SQL et on la store dans la variable $result
-$result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adresse_ip`, `commentaire`, `reforme`, `surveillance` FROM `materiel` WHERE `surveillance` = 1");?>
+$result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adresse_ip`, `commentaire`, `reforme`, `surveillance` FROM `materiel` WHERE `surveillance` = 1");
+?>
 <head>
   <link rel="icon" href="Visitor-logo.png"/>
   <meta charset="UTF-8">
@@ -40,12 +41,14 @@ $result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adre
 <nav>
   <h1>Surveillance des Équipements</h1>
   <ul>
-    <li><a href="bannis.php">Gestion des Ip a Pinger</a><li>
+    <?php if(sizeof($punis) > 0){
+      echo '<li><a href="bannis.php">Gestion des Ip a Pinger</a><li>';
+    } ?>
     <li><a href="Select.php">Selection particulière</a></li>
   </ul>
 </nav>
   <hr>
-<table>
+<table class="main">
 <tr>
   <th scope="col">Numéro</th>
   <th scope="col">ID</th>

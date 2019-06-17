@@ -8,6 +8,7 @@ require_once("Co.php"); //On récupère le singleton pour la connection
 //on va lire les infos déjà déposées dans le fichier .txt et les sauvegarder dans un tableau
 $absents = Read('faux.txt');
 $punis = Read2('pping.txt');
+$param = ReadParam('parametres.txt');
 
 $fp = fopen("faux.txt", 'w'); //renseignement du fichier texte pour l'ecriture
 # FileName="Connection_php_mysql.htm"
@@ -37,14 +38,13 @@ $result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adre
 	});
 </script>
 <body>
-  <div class="se-pre-con"></div>
 <nav>
   <h1>Surveillance des Équipements</h1>
   <ul>
-    <?php if(sizeof($punis) > 0){
-      echo '<li><a href="bannis.php">Gestion des Ip a Pinger</a><li>';
-    } ?>
-    <li><a href="Select.php">Selection particulière</a></li>
+    <?php if (sizeof($punis) > 0) {
+    echo '<li><a href="bannis.php">Gestion des Ip a Pinger</a><li>';
+} ?>
+    <li><a href="parametres.php">Paramètres</a></li>
   </ul>
 </nav>
   <hr>
@@ -85,7 +85,7 @@ for ($i = 0; $i < sizeof($result); $i++) {
         }
         if ($status == 1) {
             $status = 'Ping non réussi';
-            $bgcolor = '#e80000';
+            $bgcolor = $param['couleur'];
             $n = 1;
             for ($j = 0; $j < sizeof($absents); $j++) {
                 if ($result[$i][2] == $absents[$j][0]) {
@@ -112,7 +112,7 @@ for ($i = 0; $i < sizeof($result); $i++) {
     echo '</tr>';
 }
 //Si le bouton "supprimer toutes les ips" est cliqué, on supprime toutes les ips dans la liste des ips bannies
-//et on rafraichit la page, afin de les re-pinger
+//et on rafraichit la page, afin de les re-pinger*
 if (isset($_POST['delB'])) {
     $handle = fopen('pping.txt', "w");
     fwrite($handle, '');
@@ -121,3 +121,9 @@ if (isset($_POST['delB'])) {
 fclose($fp);?>
 
 </body>
+<script>
+setInterval(Refresh, <?php echo $param['timing']; ?>);
+function Refresh(){
+  location.reload();
+}
+</script>

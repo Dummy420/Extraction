@@ -47,4 +47,21 @@ function ip_range($start, $end)
     $end = ip2long($end);
     return array_map('long2ip', range($start, $end));
 }
-?>
+
+function ReadParam($file)
+{
+  $array = [];
+  $handle = fopen("$file", "r");
+  if ($handle) {
+      while (($line = fgets($handle)) !== false) {
+          array_push($array, $line);
+      }
+      fclose($handle);
+  }
+  $final = array(
+    'temps' => $array[0],
+    'timing' => $array[1],
+    'couleur' => $array[2],
+  );
+  return($final);
+}

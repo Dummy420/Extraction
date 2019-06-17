@@ -1,5 +1,6 @@
 <?php
 require_once("functions.php");
+$param = ReadParam('parametres.txt');
 
 //On garde les ips bannies dans l'array "$ips"
 $ips = Read2("pping.txt");
@@ -10,7 +11,7 @@ $ips = Read2("pping.txt");
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body style="background-color: <?php echo $param['couleur']; ?>">
   <nav>
     <h1>Gestion des Ip bannies</h1>
     <ul>
@@ -47,11 +48,11 @@ $ips = Read2("pping.txt");
   </div>
 </form>
 <?php
-if (sizeof($ips) > 0){
-  //Le form sert a renvoyer vers l'index, qui va automatiquement vider la liste des ips bannies
-  echo '<form method="post" action="index.php">
+if (sizeof($ips) > 0) {
+        //Le form sert a renvoyer vers l'index, qui va automatiquement vider la liste des ips bannies
+        echo '<form method="post" action="index.php">
       <input class="button" style="width: 100%;" type="submit" name="delB" value="Supprimer toutes les Ips"></input>
     </form>';
-}
+    }
+include('footer.php');
 ?>
-</body>

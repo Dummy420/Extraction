@@ -27,17 +27,7 @@ $result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adre
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Surveillance du Materiel</title>
 </head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-<script>
-//paste this code under the head tag or in a separate js file.
-	// Wait for window load
-	$(window).load(function() {
-		// Animate loader off screen
-		$(".se-pre-con").fadeOut("slow");;
-	});
-</script>
-<body>
+<body style="background-color: <?php echo $param['couleur']; ?>">
 <nav>
   <h1>Surveillance des Équipements</h1>
   <ul>
@@ -85,7 +75,7 @@ for ($i = 0; $i < sizeof($result); $i++) {
         }
         if ($status == 1) {
             $status = 'Ping non réussi';
-            $bgcolor = $param['couleur'];
+            $bgcolor = '#cd0000';
             $n = 1;
             for ($j = 0; $j < sizeof($absents); $j++) {
                 if ($result[$i][2] == $absents[$j][0]) {
@@ -119,7 +109,7 @@ if (isset($_POST['delB'])) {
     header("Refresh: 0");
 }
 fclose($fp);?>
-
+</table>
 </body>
 <script>
 setInterval(Refresh, <?php echo $param['timing']; ?>);

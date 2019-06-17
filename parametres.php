@@ -8,19 +8,21 @@ if (isset($_POST['sender'])) {
     $mili += $minute * 60000;
     echo $mili, $_POST['couleur'];
     $handle = fopen('parametres.txt', 'w');
-    fwrite($handle,$_POST['time'] . "\n" . $mili . "\n" . $_POST['couleur']);
+    fwrite($handle, $_POST['time'] . "\n" . $mili . "\n" . $_POST['couleur']);
     fclose($handle);
     echo "<p>Enregistré!";
 }
-print_r (ReadParam("parametres.txt"));
+print_r(ReadParam("parametres.txt"));
 $param = ReadParam("parametres.txt");
 echo $param['timing'];
  ?>
-
-<body>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="background-color: <?php echo $param['couleur']; ?>">
   <form method="post">
     <input type="time" name="time" value="<?php echo substr($param['temps'], 0, 5); ?>">
-    <input type="color" name="couleur" value="#ab0000">
+    <input type="color" name="couleur" value="<?php echo substr($param['couleur'], 0, 7); ?>">
     <input type="submit" name="sender" value="Enregister">
   </form>
   <a href="index.php">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</a>

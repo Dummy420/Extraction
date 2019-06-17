@@ -53,7 +53,6 @@ table {
 
 body {
   background-color: #e2e2e2;
-  background-image: url(saturne.jpg);
   background-attachment: fixed;
 }
 
@@ -124,5 +123,17 @@ table.center {
   background-color: #535353;
   color: #fff;
   cursor: pointer;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  transform: rotate(1deg);
+}
+
+.footer {
+  clear: both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #222;
+  color: #fff;
+  position: absolute;
+  bottom: 0px;
+  margin: auto;
 }

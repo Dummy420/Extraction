@@ -111,6 +111,8 @@ for ($i = 0; $i < sizeof($result); $i++) {
     echo('<td bgcolor="'. $bgcolor .'">'.$status.'</td>');
     echo '</tr>';
 }
+//Si le bouton "supprimer toutes les ips" est cliqué, on supprime toutes les ips dans la liste des ips bannies
+//et on rafraichit la page, afin de les re-pinger
 if (isset($_POST['delB'])) {
     $handle = fopen('pping.txt', "w");
     fwrite($handle, '');

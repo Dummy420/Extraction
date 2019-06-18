@@ -7,7 +7,7 @@ $ips = Read2("pping.txt");
  ?>
 <head>
   <title>Gestion des Ip pingés</title>
-    <link rel="icon" href="Visitor-logo.png" />
+    <link rel="icon" href="Images\Visitor-logo.png" />
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -54,5 +54,5 @@ if (sizeof($ips) > 0) {
       <input class="button" style="width: 100%;" type="submit" name="delB" value="Supprimer toutes les Ips"></input>
     </form>';
     }
-include('footer.php');
+include('footer.html');
 ?>

@@ -58,10 +58,15 @@ function ReadParam($file)
       }
       fclose($handle);
   }
+  $temps = substr($array[0], 0, 5);
+  $l = strlen($array[1]) - 1;
+  $timing = substr($array[0], 0, $l);
+  $couleur = substr($array[2], 0, 7);
   $final = array(
-    'temps' => $array[0],
-    'timing' => $array[1],
-    'couleur' => $array[2],
+    'temps' => $temps,
+    'timing' => $timing,
+    'couleur' => $couleur,
+    'nombre' => $array[3]
   );
   return($final);
 }

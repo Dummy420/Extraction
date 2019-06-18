@@ -22,7 +22,7 @@ $co = $link->getlink();
 $result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adresse_ip`, `commentaire`, `reforme`, `surveillance` FROM `materiel` WHERE `surveillance` = 1");
 ?>
 <head>
-  <link rel="icon" href="Visitor-logo.png"/>
+  <link rel="icon" href="Images\Visitor-logo.png"/>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Surveillance du Materiel</title>
@@ -86,7 +86,7 @@ for ($i = 0; $i < sizeof($result); $i++) {
                     }
                 }
             }
-            if ($n <= 2) {
+            if ($n <= $param['nombre']) {
                 fwrite($fp, $result[$i][2] . " " . $n . "\r\n");
             } else {
                 $handle = fopen("pping.txt", "a");
@@ -112,7 +112,12 @@ fclose($fp);?>
 </table>
 </body>
 <script>
-setInterval(Refresh, <?php echo $param['timing']; ?>);
+var time = <?php echo $param['timing']; ?>;
+
+if(time > 0) {
+  setInterval(Refresh, time);
+}
+
 function Refresh(){
   location.reload();
 }

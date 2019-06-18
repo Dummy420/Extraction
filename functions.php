@@ -4,14 +4,20 @@ function Read($file)
     if (file_exists($file)) {
         $absents = [];
         $handle = fopen("$file", "r");
+        $i = 0;
+        $array = [];
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
-                $n = substr("$line", -3, 1);
-                $l = strlen($line);
-                $l -= 4;
-                $ip = substr($line, 0, $l);
-                $array = [$ip, $n];
-                array_push($absents, $array);
+                if ($i % 2 == 0) {
+                    echo 'ip';
+                    array_push($array, substr($line, 0, -1));
+                } else {
+                    echo 'n';
+                    array_push($array, substr($line, 0, -1));
+                    array_push($absents, $array);
+                    $array = [];
+                }
+                $i++;
             }
             fclose($handle);
         }
@@ -29,7 +35,7 @@ function Read2($file)
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
                 $l = strlen($line);
-                $l -= 2;
+                $l -= 1;
                 $ip = substr("$line", 0, $l);
                 array_push($absents, $ip);
             }
@@ -50,23 +56,22 @@ function ip_range($start, $end)
 
 function ReadParam($file)
 {
-  $array = [];
-  $handle = fopen("$file", "r");
-  if ($handle) {
-      while (($line = fgets($handle)) !== false) {
-          array_push($array, $line);
-      }
-      fclose($handle);
-  }
-  $temps = substr($array[0], 0, 5);
-  $l = strlen($array[1]) - 1;
-  $timing = substr($array[0], 0, $l);
-  $couleur = substr($array[2], 0, 7);
-  $final = array(
+    $array = [];
+    $handle = fopen("$file", "r");
+    if ($handle) {
+        while (($line = fgets($handle)) !== false) {
+            array_push($array, $line);
+        }
+        fclose($handle);
+    }
+    $temps = substr($array[0], 0, 5);
+    $l = strlen($array[1]) - 1;
+    $timing = substr($array[1], 0, $l);
+    $n = substr($array[2], 0, 2);
+    $final = array(
     'temps' => $temps,
     'timing' => $timing,
-    'couleur' => $couleur,
-    'nombre' => $array[3]
+    'nombre' => $n,
   );
-  return($final);
+    return($final);
 }

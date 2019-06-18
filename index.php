@@ -1,5 +1,5 @@
 <?php
-ini_set('max_execution_time', 0); //sert a éviter un plantage au bout de 120s
+//ini_set('max_execution_time', 0); //sert a éviter un plantage au bout de 120s
 $absents = [];
 $punis = [];
 
@@ -27,7 +27,7 @@ $result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adre
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Surveillance du Materiel</title>
 </head>
-<body style="background-color: <?php echo $param['couleur']; ?>">
+<body>
 <nav>
   <h1>Surveillance des Équipements</h1>
   <ul>
@@ -81,16 +81,17 @@ for ($i = 0; $i < sizeof($result); $i++) {
                 if ($result[$i][2] == $absents[$j][0]) {
                     $n = $absents[$j][1];
                     $n++;
-                    if ($n == "\r") {
+                    echo 'test';
+                    /*if ($n == null) {
                         $n = 1;
-                    }
+                    }*/
                 }
             }
             if ($n <= $param['nombre']) {
-                fwrite($fp, $result[$i][2] . " " . $n . "\r\n");
+                fwrite($fp, $result[$i][2] . "\n" . $n . "\n");
             } else {
                 $handle = fopen("pping.txt", "a");
-                fwrite($handle, $result[$i][2]."\r\n");
+                fwrite($handle, $result[$i][2]."\n");
                 fclose($handle);
             }
         } elseif ($status == 0) {

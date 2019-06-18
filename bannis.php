@@ -11,7 +11,7 @@ $ips = Read2("pping.txt");
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background-color: <?php echo $param['couleur']; ?>">
+<body>
   <nav>
     <h1>Gestion des Ip bannies</h1>
     <ul>

@@ -9,10 +9,8 @@ function Read($file)
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
                 if ($i % 2 == 0) {
-                    echo 'ip';
                     array_push($array, substr($line, 0, -1));
                 } else {
-                    echo 'n';
                     array_push($array, substr($line, 0, -1));
                     array_push($absents, $array);
                     $array = [];

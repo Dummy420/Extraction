@@ -75,16 +75,12 @@ for ($i = 0; $i < sizeof($result); $i++) {
         }
         if ($status == 1) {
             $status = 'Ping non réussi';
-            $bgcolor = '#cd0000';
+            $bgcolor = '#E00000';
             $n = 1;
             for ($j = 0; $j < sizeof($absents); $j++) {
                 if ($result[$i][2] == $absents[$j][0]) {
                     $n = $absents[$j][1];
                     $n++;
-                    echo 'test';
-                    /*if ($n == null) {
-                        $n = 1;
-                    }*/
                 }
             }
             if ($n <= $param['nombre']) {
@@ -111,6 +107,8 @@ if (isset($_POST['delB'])) {
 }
 fclose($fp);?>
 </table>
+<hr>
+<?php include('footer.html'); ?>
 </body>
 <script>
 var time = <?php echo $param['timing']; ?>;

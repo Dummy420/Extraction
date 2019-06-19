@@ -11,7 +11,6 @@ if (isset($_POST['sender'])) {
     fclose($handle);
 }
 $param = ReadParam("parametres.txt");
-var_dump($param);
  ?>
 <head>
   <link rel="icon" href="Images\Visitor-logo.png" />
@@ -25,6 +24,7 @@ var_dump($param);
       <li><a href="index.php">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</a></li>
     </ul>
   </nav>
+  <hr>
   <?php
   if(isset($_POST['info'])) {
     echo '<h2>' . $_POST ['info'] . '</h2>';
@@ -36,4 +36,8 @@ var_dump($param);
     <input type="submit" name="sender" value="Enregister">
     <input type="hidden" value="Enregistrées!" name="info">
   </form>
+  <span class="petit">
+    <hr>
+    <?php include('footer.html'); ?>
+  </span>
 </body>

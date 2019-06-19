@@ -54,5 +54,8 @@ if (sizeof($ips) > 0) {
       <input class="button" style="width: 100%;" type="submit" name="delB" value="Supprimer toutes les Ips"></input>
     </form>';
     }
-include('footer.html');
 ?>
+<span class="petit">
+  <hr>
+  <?php include('footer.html'); ?>
+</span>

@@ -24,16 +24,13 @@ class Link extends PDO
     {
         try {
             $this->link = new PDO(
-            $this->type.':host='.$this->host.'; dbname='.$this->dbname,
-            $this->username,
-            $this->password,
-            array(PDO::ATTR_PERSISTENT => true)
+                $this->type.':host='.$this->host.'; dbname='.$this->dbname,
+                $this->username,
+                $this->password,
+                array(PDO::ATTR_PERSISTENT => true)
     );
             $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            /*$req = "SET NAMES UTF8";
-            $result = $this->dbh->prepare($req);
-            $result->execute();*/
         } catch (PDOException $e) {
             echo $e->getMessage();
             die();
@@ -60,7 +57,6 @@ class Link extends PDO
         $result = $this->link->query($query);
         while ($row = $result->fetch()) {
             array_push($array, $row);
-            //var_dump($row);
         }
         return $array;
     }

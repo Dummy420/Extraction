@@ -17,7 +17,6 @@ $fp = fopen("faux.txt", 'w'); //renseignement du fichier texte pour l'ecriture
 
 $link = Link::getInstance(); //recupération de la connection a la base SQL
 $co = $link->getlink();
-
 //on effectue la requête SQL et on la store dans la variable $result
 $result = $link->Select("SELECT `materiel_reference`, `utilisateur_final`, `adresse_ip`, `commentaire`, `reforme`, `surveillance` FROM `materiel` WHERE `surveillance` = 1");
 ?>

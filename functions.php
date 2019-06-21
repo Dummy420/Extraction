@@ -32,9 +32,7 @@ function Read2($file)
         $handle = fopen("$file", "r");
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
-                $l = strlen($line);
-                $l -= 1;
-                $ip = substr("$line", 0, $l);
+                $ip = substr("$line", 0, -1);
                 array_push($absents, $ip);
             }
             fclose($handle);
@@ -43,13 +41,6 @@ function Read2($file)
     } else {
         return [];
     }
-}
-
-function ip_range($start, $end)
-{
-    $start = ip2long($start);
-    $end = ip2long($end);
-    return array_map('long2ip', range($start, $end));
 }
 
 function ReadParam($file)

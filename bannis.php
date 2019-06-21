@@ -4,6 +4,7 @@ $param = ReadParam('parametres.txt');
 
 //On garde les ips bannies dans l'array "$ips"
 $ips = Read2("pping.txt");
+$key;
  ?>
 <head>
   <title>Gestion des Ip pingés</title>
@@ -19,7 +20,7 @@ $ips = Read2("pping.txt");
     </ul>
   </nav>
   <hr>
-  <div style="align: center;">
+  <div style="align: center; padding: 10px;">
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <?php
     foreach ($ips as $ip) {
@@ -38,7 +39,7 @@ $ips = Read2("pping.txt");
             unset($ips[$key]);
             $handler = fopen("pping.txt", "w");
             foreach ($ips as $ip) {
-                fwrite($handler, $ip . "\r\n");
+                fwrite($handler, $ip . "\n");
                 //on réecrit la liste dans le txt sans l'ip qui viens d'être supprimée
             }
             //On rafraichit la page
@@ -47,6 +48,7 @@ $ips = Read2("pping.txt");
     ?>
   </div>
 </form>
+<hr>
 <?php
 if (sizeof($ips) > 0) {
         //Le form sert a renvoyer vers l'index, qui va automatiquement vider la liste des ips bannies

@@ -26,7 +26,7 @@ $param = ReadParam("parametres.txt");
     </ul>
   </nav>
   <hr>
-   <div style="padding: 15px; background-color: #00000036; margin: 10px;">
+   <div style="padding: 15px; background-color: #00000036; margin: 10px; box-shadow: 9px 9px 10px 3px rgba(0,0,0,0.35);">
      <?php
      if (isset($_POST['info'])) {
          echo '<h2>' . $_POST ['info'] . '</h2>';

@@ -1,0 +1,12 @@
+===Base de données inventaire_test
+
+== Déchargement des données de la table materiel
+
+|1|David|192.168.1.12|Très bien|0|1
+|2|Jean|192.168.1.150|NULL|0|1
+|3|Marie|192.168.1.20|NULL|1|1
+|4|Pascal|127.0.0.1|NULL|0|1
+|5|Sebastien|8.8.8.8|NULL|0|1
+|6|Dupont|8.8.2.2|Avec un T|0|1
+|7|Dupond|8.8.4.4|Avec un D|0|1
+|8|Allan|95.123.52.20|NULL|0|1
